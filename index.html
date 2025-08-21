@@ -369,8 +369,6 @@
 <div class="news-card modern news-visible" data-category="events">
 <div class="news-image">
 <img alt="Christmas Event" src="https://images.unsplash.com/photo-1512389142860-9c449e58a543?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"/>
-<div class="news-date">Dec 20, 2024</div>
-<div class="news-reading-time">3 min read</div>
 </div>
 <div class="news-content">
 <div class="news-category events">🎄 Events</div>
@@ -386,8 +384,6 @@
 <div class="news-card modern news-visible" data-category="awards">
 <div class="news-image">
 <img alt="Care Award" src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"/>
-<div class="news-date">Dec 10, 2024</div>
-<div class="news-reading-time">2 min read</div>
 </div>
 <div class="news-content">
 <div class="news-category awards">🏆 Awards</div>
@@ -403,8 +399,6 @@
 <div class="news-card modern news-visible" data-category="innovation">
 <div class="news-image">
 <img alt="Digital Innovation" src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"/>
-<div class="news-date">Dec 5, 2024</div>
-<div class="news-reading-time">4 min read</div>
 </div>
 <div class="news-content">
 <div class="news-category innovation">💡 Innovation</div>
@@ -420,8 +414,6 @@
 <div class="news-card modern news-visible" data-category="community">
 <div class="news-image">
 <img alt="Community Garden" src="https://images.unsplash.com/photo-1416879595882-3373a0480b5b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"/>
-<div class="news-date">Nov 28, 2024</div>
-<div class="news-reading-time">3 min read</div>
 </div>
 <div class="news-content">
 <div class="news-category community">🌱 Community</div>
@@ -437,8 +429,6 @@
 <div class="news-card modern news-hidden" data-category="events" style="display: none;">
 <div class="news-image">
 <img alt="Staff Training" src="https://images.unsplash.com/photo-1582750433449-648ed127bb54?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"/>
-<div class="news-date">Nov 15, 2024</div>
-<div class="news-reading-time">2 min read</div>
 </div>
 <div class="news-content">
 <div class="news-category events">🎓 Training</div>
@@ -454,8 +444,6 @@
 <div class="news-card modern news-hidden" data-category="awards" style="display: none;">
 <div class="news-image">
 <img alt="Quality Award" src="https://images.unsplash.com/photo-1551836022-deb4988cc6c0?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"/>
-<div class="news-date">Oct 30, 2024</div>
-<div class="news-reading-time">3 min read</div>
 </div>
 <div class="news-content">
 <div class="news-category awards">🏅 Recognition</div>
@@ -470,7 +458,7 @@
 </div>
 </div>
 <div class="news-view-all">
-<a href="./pages/info/news.html" class="btn btn-outline">View All News</a>
+<a href="./pages/info/news.html" class="btn btn-primary" id="viewAllBtn">View All News</a>
 </div>
 <div class="news-cta">
 <div class="news-newsletter">
@@ -479,7 +467,7 @@
 <h4>Stay Updated</h4>
 <p>Get the latest news delivered to your inbox</p>
 </div>
-<a href="#newsletter" class="btn btn-outline">Subscribe Now</a>
+<a href="#newsletter" class="btn btn-primary">Subscribe Now</a>
 </div>
 </div>
 </div>
@@ -740,17 +728,7 @@
 </div>
 </div>
 </div>
-<div class="facilities-highlight modern">
-<div class="highlight-content">
-<div class="highlight-badge">🐾 Special Program</div>
-<h3>Pet Therapy & Animal Visits</h3>
-<p>Regular visits from certified therapy animals to provide comfort, companionship & emotional support for our residents.</p>
-<a href="./pages/info/activities.html#pet-therapy" class="btn btn-small">Learn More</a>
-</div>
-<div class="highlight-image">
-<img src="https://images.unsplash.com/photo-1601758228041-f3b2795255f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Pet Therapy">
-</div>
-</div>
+
 </div>
 </section>
 
@@ -840,7 +818,7 @@
 <p>Stay updated with the latest news and events from Bellavista Nursing Homes</p>
 <div class="newsletter-form">
 <input class="newsletter-input" placeholder="Enter your email" type="email"/>
-<button class="newsletter-btn" type="submit">Subscribe</button>
+<button class="newsletter-btn" type="submit" style="background-color: #007bff; border-color: #007bff;">Subscribe</button>
 </div>
 </div>
 <div class="copyright">
@@ -916,6 +894,17 @@ document.addEventListener('DOMContentLoaded', function() {
                     card.style.display = 'none';
                 }
             });
+            
+            // Update View All button text
+            const viewAllBtn = document.getElementById('viewAllBtn');
+            const buttonTexts = {
+                'all': 'View All News',
+                'awards': 'View All Awards',
+                'events': 'View All Events',
+                'innovation': 'View All Innovation',
+                'community': 'View All Community'
+            };
+            viewAllBtn.textContent = buttonTexts[filter] || 'View All News';
         });
     });
 });
