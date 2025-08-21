@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Bellavista Cardiff - Nursing Home</title>
+  <link rel="stylesheet" href="../../assets/css/styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+  <style>
+    .home-hero {
+      background: linear-gradient(135deg, rgba(0,102,204,0.9), rgba(0,180,216,0.9)), url('https://picsum.photos/seed/cardiff/1200/600') center/cover;
+      color: white;
+      padding: 100px 0;
+      text-align: center;
+    }
+    .home-hero h1 {
+      font-size: 3.5rem;
+      margin-bottom: 20px;
+      animation: fadeInUp 1s ease;
+    }
+    .home-hero p {
+      font-size: 1.2rem;
+      max-width: 600px;
+      margin: 0 auto;
+      animation: fadeInUp 1s ease 0.3s both;
+    }
+    .section {
+      padding: 80px 0;
+      animation: fadeInUp 1s ease;
+    }
+    .section:nth-child(even) {
+      background: var(--bg-light);
+    }
+    .team-grid, .care-grid, .activity-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      margin-top: 40px;
+    }
+    .card {
+      background: white;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      text-align: center;
+      transition: transform 0.3s ease;
+    }
+    .card:hover {
+      transform: translateY(-10px);
+    }
+    .card img {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      margin-bottom: 20px;
+    }
+    .visit-form {
+      max-width: 500px;
+      margin: 0 auto;
+      background: white;
+      padding: 40px;
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    }
+    .form-group {
+      margin-bottom: 20px;
+    }
+    .form-control {
+      width: 100%;
+      padding: 12px 15px;
+      border: 2px solid var(--bg-dark);
+      border-radius: 8px;
+      font-size: 16px;
+    }
+    .map-container {
+      height: 400px;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    }
+    .faq-item {
+      background: white;
+      margin-bottom: 15px;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+    .faq-question {
+      padding: 20px;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-weight: 600;
+      transition: background 0.3s ease;
+    }
+    .faq-question:hover {
+      background: var(--bg-light);
+    }
+    .faq-answer {
+      padding: 0 20px;
+      max-height: 0;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+    .faq-answer.active {
+      padding: 20px;
+      max-height: 200px;
+    }
+    .contact-info {
+      background: white;
+      padding: 40px;
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    }
+    .contact-item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+      font-size: 1.1rem;
+    }
+    .contact-item i {
+      color: var(--primary-blue);
+      margin-right: 15px;
+      width: 20px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container header-container">
+      <div class="left-menu-wrapper">
+        <div class="left-menu-toggle">
+          <i class="fas fa-bars"></i>
+        </div>
+        <div class="side-dropdown-menu" id="sideMenu">
+          <div class="close-menu">
+            <i class="fas fa-times"></i>
+          </div>
+          <ul>
+            <li><a href="../../index.html">Home</a></li>
+            <li><a href="our-homes.html">Our Homes</a></li>
+            <li><a href="../info/contact.html">Contact Us</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="logo" onclick="window.location.href='../../index.html'" style="cursor: pointer;">
+        <div class="logo-icon"><i class="fas fa-home"></i></div>
+        <div class="logo-text-group">
+          <div class="logo-text">Bellavista <span>Nursing Homes</span></div>
+          <div class="tagline">A Home From Home</div>
+        </div>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="../../index.html">Home</a></li>
+          <li><a href="our-homes.html">Our Homes</a></li>
+          <li><a href="../info/contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="home-hero">
+    <div class="container">
+      <h1>Bellavista Cardiff</h1>
+      <p>A homely and friendly purpose-built Nursing Home with a beautiful view of Cardiff Bay. We offer personalized care in a warm, welcoming environment.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title">Meet Our Team</h2>
+      <div class="team-grid">
+        <div class="card">
+          <img src="https://picsum.photos/seed/manager1/200/200" alt="Sarah Evans">
+          <h4>Sarah Evans</h4>
+          <p>Home Manager</p>
+          <p>15+ years experience in care management</p>
+        </div>
+        <div class="card">
+          <img src="https://picsum.photos/seed/nurse1/200/200" alt="Dr. James Wilson">
+          <h4>Dr. James Wilson</h4>
+          <p>Senior Nurse</p>
+          <p>Specialized in elderly care and rehabilitation</p>
+        </div>
+        <div class="card">
+          <img src="https://picsum.photos/seed/therapist1/200/200" alt="Emma Thompson">
+          <h4>Emma Thompson</h4>
+          <p>Activities Coordinator</p>
+          <p>Creating engaging programs for residents</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title">Care Types</h2>
+      <div class="care-grid">
+        <div class="card">
+          <i class="fas fa-heart" style="font-size: 3rem; color: var(--primary-blue); margin-bottom: 20px;"></i>
+          <h4>Residential Care</h4>
+          <p>Comfortable living with personal care support</p>
+        </div>
+        <div class="card">
+          <i class="fas fa-user-nurse" style="font-size: 3rem; color: var(--primary-orange); margin-bottom: 20px;"></i>
+          <h4>Nursing Care</h4>
+          <p>24/7 professional nursing support</p>
+        </div>
+        <div class="card">
+          <i class="fas fa-brain" style="font-size: 3rem; color: var(--primary-purple); margin-bottom: 20px;"></i>
+          <h4>Dementia Care</h4>
+          <p>Specialized care for memory-related conditions</p>
+        </div>
+        <div class="card">
+          <i class="fas fa-clock" style="font-size: 3rem; color: var(--primary-green); margin-bottom: 20px;"></i>
+          <h4>Respite Care</h4>
+          <p>Short-term care to support families</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title">Activities & Wellbeing</h2>
+      <div class="activity-grid">
+        <div class="card">
+          <i class="fas fa-palette" style="font-size: 3rem; color: var(--primary-blue); margin-bottom: 20px;"></i>
+          <h4>Arts & Crafts</h4>
+          <p>Creative sessions to stimulate imagination</p>
+        </div>
+        <div class="card">
+          <i class="fas fa-music" style="font-size: 3rem; color: var(--primary-orange); margin-bottom: 20px;"></i>
+          <h4>Music Therapy</h4>
+          <p>Therapeutic music sessions for wellbeing</p>
+        </div>
+        <div class="card">
+          <i class="fas fa-seedling" style="font-size: 3rem; color: var(--primary-green); margin-bottom: 20px;"></i>
+          <h4>Gardening Club</h4>
+          <p>Outdoor activities and garden maintenance</p>
+        </div>
+        <div class="card">
+          <i class="fas fa-dumbbell" style="font-size: 3rem; color: var(--primary-purple); margin-bottom: 20px;"></i>
+          <h4>Exercise Classes</h4>
+          <p>Gentle fitness programs for all abilities</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title">Book a Visit</h2>
+      <form class="visit-form">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Your Name" required>
+        </div>
+        <div class="form-group">
+          <input type="email" class="form-control" placeholder="Your Email" required>
+        </div>
+        <div class="form-group">
+          <input type="tel" class="form-control" placeholder="Your Phone">
+        </div>
+        <div class="form-group">
+          <input type="date" class="form-control" required>
+        </div>
+        <button type="submit" class="btn" style="width: 100%;">
+          <i class="fas fa-calendar-check"></i> Request Visit
+        </button>
+      </form>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title">Find Us</h2>
+      <div class="map-container">
+        <iframe src="https://www.google.com/maps?q=Cardiff+Bay+Road,+Cardiff&output=embed" width="100%" height="400" frameborder="0" style="border:0;" allowfullscreen></iframe>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title">Latest News</h2>
+      <div class="team-grid">
+        <div class="card">
+          <h4>New Activity Program Launched</h4>
+          <p>We're excited to introduce our new music therapy sessions starting this month.</p>
+          <small>December 2024</small>
+        </div>
+        <div class="card">
+          <h4>Garden Renovation Complete</h4>
+          <p>Our beautiful new sensory garden is now open for all residents to enjoy.</p>
+          <small>November 2024</small>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title">Virtual Tour</h2>
+      <div style="text-align: center;">
+        <iframe width="800" height="450" src="https://www.youtube.com/embed/demo" frameborder="0" allowfullscreen style="max-width: 100%; border-radius: 15px;"></iframe>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title">Frequently Asked Questions</h2>
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          What are the visiting hours?
+          <i class="fas fa-chevron-down"></i>
+        </div>
+        <div class="faq-answer">
+          <p>Visiting hours are 10am to 8pm daily. Please contact us for special arrangements.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          Can residents bring pets?
+          <i class="fas fa-chevron-down"></i>
+        </div>
+        <div class="faq-answer">
+          <p>Small pets are welcome with prior approval. Please discuss with our manager.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          What meals are provided?
+          <i class="fas fa-chevron-down"></i>
+        </div>
+        <div class="faq-answer">
+          <p>We provide three nutritious meals daily plus snacks, with dietary requirements catered for.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title">Contact Information</h2>
+      <div class="contact-info">
+        <div class="contact-item">
+          <i class="fas fa-map-marker-alt"></i>
+          <span>1 Cardiff Bay Road, Cardiff, CF10 5AA</span>
+        </div>
+        <div class="contact-item">
+          <i class="fas fa-phone"></i>
+          <span>(029) 1234 5678</span>
+        </div>
+        <div class="contact-item">
+          <i class="fas fa-envelope"></i>
+          <span>cardiff@bellavistanursinghome.com</span>
+        </div>
+        <div class="contact-item">
+          <i class="fas fa-clock"></i>
+          <span>Open 24/7 for residents and families</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="copyright">
+        <p>© 2024 Bellavista Nursing Homes. All Rights Reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../../assets/js/main.js"></script>
+  <script>
+    function toggleFaq(element) {
+      const answer = element.nextElementSibling;
+      const icon = element.querySelector('i');
+      
+      answer.classList.toggle('active');
+      icon.classList.toggle('fa-chevron-down');
+      icon.classList.toggle('fa-chevron-up');
+    }
+    
+    // Mobile menu toggle
+    document.querySelector('.left-menu-toggle').addEventListener('click', function() {
+      document.getElementById('sideMenu').classList.toggle('active');
+    });
+    
+    document.querySelector('.close-menu').addEventListener('click', function() {
+      document.getElementById('sideMenu').classList.remove('active');
+    });
+  </script>
+</body>
+</html>
